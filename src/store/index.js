@@ -95,11 +95,11 @@ const store = new Vuex.Store({
       state.languageType = val;
     },
     // 修改菜单数据
-    changeMenuData(state,val){
+    changeMenuData(state, val) {
       state.menuData = val;
     },
     // 修改loading
-    changeLoading(state,val){
+    changeLoading(state, val) {
       state.loading = val;
     }
   },

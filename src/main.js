@@ -12,7 +12,8 @@ import {
   Spin,
   Icon
 } from "ant-design-vue";
-import 'ant-design-vue/dist/antd.css';
+import "ant-design-vue/dist/antd.css";
+import instance from "./util/axios.js";
 
 Vue.use(Carousel);
 Vue.use(Input);
@@ -33,14 +34,14 @@ Vue.use(BaiduMap, {
 });
 // iocnfont
 const MyIcon = Icon.createFromIconfontCN({
-  scriptUrl: '//at.alicdn.com/t/font_1525425_49fo7wfj1ek.js', // 在 iconfont.cn 上生成
+  scriptUrl: "//at.alicdn.com/t/font_1525425_49fo7wfj1ek.js" // 在 iconfont.cn 上生成
 });
-Vue.component('iconfont', MyIcon);
+Vue.component("iconfont", MyIcon);
 // 引入css
-//import "./assets/style/default.styl";
+import "./assets/style/default.styl";
 
 //将axios挂载到Vue的原型上
-//Vue.prototype.axios = instance;
+Vue.prototype.axios = instance;
 
 Vue.config.productionTip = false;
 
