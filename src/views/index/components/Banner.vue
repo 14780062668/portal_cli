@@ -68,7 +68,6 @@ export default {
         line-height 28px
     p
       margin-bottom 0
-
 .ant-carousel >>> .slick-slide {
   text-align: center;
   width: 100%;
