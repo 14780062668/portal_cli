@@ -101,7 +101,9 @@ const store = new Vuex.Store({
     // 修改loading
     changeLoading(state, val) {
       state.loading = val;
-    }
+    },
+    // tip
+    
   },
   getters: {
     navList(state) {

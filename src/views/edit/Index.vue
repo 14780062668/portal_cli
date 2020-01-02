@@ -128,13 +128,12 @@
 import mixins from "../../mixins/index.js";
 import Upload from "../../components/ButtonUpload.vue";
 import Wangeditor from "../../components/Wangeditor.vue";
-import OssUpload from "../../components/OssUpload.vue";
+//import OssUpload from "../../components/OssUpload.vue";
 export default {
   mixins: [mixins],
   components: {
     Upload,
-    Wangeditor,
-    OssUpload
+    Wangeditor
   },
   data() {
     return {
@@ -344,121 +343,113 @@ export default {
       let listItem = this.initNavList[index];
       // 参数
       let params = {};
-      switch (this.menuValue) {
-        case 1:
-        case 3:
-        case 4:
-        case 6:
-          let cnContent = this.$refs.cnContent.getContent();
-          let enContent = this.$refs.enContent.getContent();
-          if (!cnContent) {
-            this.$message.warning("文内容不能为空");
-            return false;
-          }
-          if (!enContent) {
-            this.$message.warning("英文内容不能为空");
-            return false;
-          }
-          // 中文编辑
-          this.axios
-            .post(`content/update_menu_info`, {
-              alias: this.cnName,
-              context: cnContent,
-              id: listItem.cnId,
-              name: listItem.name
-            })
-            .then(({ data }) => {
-              console.log("res===", data);
-            });
-          // 英文文编辑
-          this.axios
-            .post(`content/update_menu_info`, {
-              alias: this.enName,
-              context: enContent,
-              id: listItem.enId,
-              name: listItem.enName
-            })
-            .then(({ data }) => {
-              console.log("res===", data);
-            });
-          break;
-        case 2:
-          if (!this.productId1) {
-            this.$message.warning("请选择一级产品");
-            return false;
-          }
-          if (!this.productName) {
-            this.$message.warning("请输入产品名称");
-            return false;
-          }
-          if (!this.material) {
-            this.$message.warning("请输入材质");
-            return false;
-          }
-          if (!this.specialty) {
-            this.$message.warning("请输入产品特点");
-            return false;
-          }
-          if (this.fileList.length < 1) {
-            this.$message.warning("请导入图片");
-            return false;
-          }
-          params = {
-            adhibition: this.adhibition,
-            attachment: this.fileList[0].url,
-            material: this.material,
-            menuId: this.productId1,
-            name: this.productName,
-            specialty: this.specialty
+      if ([1, 3, 4, 6].includes(this.menuValue)) {
+        let cnContent = this.$refs.cnContent.getContent();
+        let enContent = this.$refs.enContent.getContent();
+        if (!cnContent) {
+          this.$message.warning("文内容不能为空");
+          return false;
+        }
+        if (!enContent) {
+          this.$message.warning("英文内容不能为空");
+          return false;
+        }
+        // 中文编辑
+        this.axios
+          .post(`content/update_menu_info`, {
+            alias: this.cnName,
+            context: cnContent,
+            id: listItem.cnId,
+            name: listItem.name
+          })
+          .then(({ data }) => {
+            console.log("res===", data);
+          });
+        // 英文文编辑
+        this.axios
+          .post(`content/update_menu_info`, {
+            alias: this.enName,
+            context: enContent,
+            id: listItem.enId,
+            name: listItem.enName
+          })
+          .then(({ data }) => {
+            console.log("res===", data);
+          });
+      } else if (this.menuValue === 2) {
+        if (!this.productId1) {
+          this.$message.warning("请选择一级产品");
+          return false;
+        }
+        if (!this.productName) {
+          this.$message.warning("请输入产品名称");
+          return false;
+        }
+        if (!this.material) {
+          this.$message.warning("请输入材质");
+          return false;
+        }
+        if (!this.specialty) {
+          this.$message.warning("请输入产品特点");
+          return false;
+        }
+        if (this.fileList.length < 1) {
+          this.$message.warning("请导入图片");
+          return false;
+        }
+        params = {
+          adhibition: this.adhibition,
+          attachment: this.fileList[0].url,
+          material: this.material,
+          menuId: this.productId1,
+          name: this.productName,
+          specialty: this.specialty
+        };
+        if (this.showIndex > 0) {
+          params.relationInfo = {
+            menuId: this.initNavList[0].id,
+            relationSort: this.showIndex
           };
-          if (this.showIndex > 0) {
-            params.relationInfo = {
-              menuId: this.initNavList[0].id,
-              relationSort: this.showIndex
-            };
-          }
-          console.log("params==", params);
-          // 添加
-          if (this.productId2 == -1) {
-            this.axios.post(`product/add_product`, params).then(({ data }) => {
-              console.log("res===", data);
-              this.$message.success("添加成功");
-              this.getList();
-            });
-          } else {
-            // 编辑产品
-            params.id = this.productId2;
-            this.axios
-              .post(`product/update_product`, params)
-              .then(({ data }) => {
-                this.$message.success("编辑产品成功");
-                console.log("res===", data);
-                this.getList();
-              });
-          }
-          break;
-        default:
-          // 只修改别名  this.menuValue=5
-          this.axios
-            .post(`content/update_menu_info`, {
-              alias: this.aliseCnName,
-              context: "",
-              id: listItem.cnId,
-              name: listItem.name
-            })
-            .then(({ data }) => {
-              console.log("res===", data);
-            });
-          this.axios
-            .post(`content/update_menu_info`, {
-              alias: this.aliseEnName,
-              context: "",
-              id: listItem.enId,
-              name: listItem.name
-            })
-            .then(({ data }) => {
-              console.log("res===", data);
-            });
+        }
+        console.log("params==", params);
+        // 添加
+        if (this.productId2 == -1) {
+          this.axios.post(`product/add_product`, params).then(({ data }) => {
+            console.log("res===", data);
+            this.$message.success("添加成功");
+            this.getList();
+          });
+        } else {
+          // 编辑产品
+          params.id = this.productId2;
+          this.axios.post(`product/update_product`, params).then(({ data }) => {
+            this.$message.success("编辑产品成功");
+            console.log("res===", data);
+            this.getList();
+          });
+        }
+      } else {
+        // 只修改别名  this.menuValue=5
+        this.axios
+          .post(`content/update_menu_info`, {
+            alias: this.aliseCnName,
+            context: "",
+            id: listItem.cnId,
+            name: listItem.name
+          })
+          .then(({ data }) => {
+            console.log("res===", data);
+          });
+        this.axios
+          .post(`content/update_menu_info`, {
+            alias: this.aliseEnName,
+            context: "",
+            id: listItem.enId,
+            name: listItem.name
+          })
+          .then(({ data }) => {
+            console.log("res===", data);
+          });
       }
 
       console.log("编辑==", this.param);
@@ -496,14 +487,14 @@ export default {
         cursor pointer
         &:hover
           color #ffffff
-          background #1493cf
-          border-color #1493cf
+          background color-main
+          border-color color-main
         i
           margin-left 10px
       .active-btn
         color #ffffff
-        background #1493cf
-        border-color #1493cf
+        background color-main
+        border-color color-main
     .ant-input
       flex 1
     .ant-select

@@ -99,7 +99,7 @@ export default {
       flex 1
       padding 100px 0 0 40px
       h4
-        color #1493cf
+        color color-main
         font-size 23px
         font-weight 400
         position relative
@@ -108,7 +108,7 @@ export default {
           width 20px
           height 20px
           content ''
-          background #1493cf
+          background color-main
           border-radius 1px
           display inline-block
           vertical-align middle
@@ -132,7 +132,7 @@ export default {
       margin 40px 0 10px 0
       h4
         margin-left 220px
-        color #1493cf
+        color color-main
         font-size 23px
         font-weight 400
         position relative
@@ -141,7 +141,7 @@ export default {
           width 20px
           height 20px
           content ''
-          background #1493cf
+          background color-main
           border-radius 1px
           display inline-block
           vertical-align middle

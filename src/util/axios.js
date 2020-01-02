@@ -1,13 +1,23 @@
 import axios from "axios";
+import config from "../../config/index.js";
 import store from "../store/index.js";
 
+console.log("config==", config);
+//let { env } = process;
+//const NODE_ENV = env && env.NODE_ENV ? env.NODE_ENV : "dev";
+
+// const baseUrl =
+//   NODE_ENV == "dev"
+//     ? "http://139.196.56.192:80/portal/api"
+//     : "http://localhost:80/portal/api";
+const baseUrl = "http://139.196.56.192:80/portal/api";
+console.log("baseUrl==", baseUrl);
 //axios全局配置
 const instance = axios.create({
   //请求接口
-  // baseURL: config.dev.baseUrl,
-  baseURL: "http://47.252.23.23:8080/portal/api",
+  baseURL: baseUrl,
   //超时设置
-  timeout: 30000,
+  timeout: 20000,
   //请求头设置
   headers: {
     accept: "application/json",
@@ -31,7 +41,7 @@ instance.interceptors.request.use(
   },
   error => {
     // 对请求错误做些什么
-    console.log("error===", error);
+    console.error("ajax error", error);
   }
 );
 //respone拦截器==>对响应做处理
@@ -39,11 +49,14 @@ instance.interceptors.response.use(
   res => {
     store.state.loading = false;
     //成功请求到数据
-    if (res.status == 200) {
+    if (res.status === 200) {
       return res;
     } else {
-      vm.$message.warning("请求错误");
-      //return "请求错误";
+      setTimeout(() => {
+        window.vm.$message.warning("请求错误");
+      }, 40);
+      console.error("ajax error", res);
+      return res
     }
   },
   error => {

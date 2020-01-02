@@ -31,7 +31,9 @@ export default {
   props: {
     detailData: {
       type: Object,
-      default: {}
+      default: () => {
+        return {};
+      }
     }
   },
   components: {},
@@ -62,7 +64,7 @@ export default {
       width 100%
   .detail-info
     padding 54px 18px 120px
-    color #1493cf
+    color color-main
     li
       display flex
       font-size 18px

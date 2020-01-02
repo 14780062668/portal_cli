@@ -113,7 +113,7 @@ export default {
     text-align center
     margin-bottom 40px
     h2
-      color #1493cf
+      color color-main
       font-size 80px
       margin-bottom 0
     .why-btn
@@ -122,7 +122,7 @@ export default {
       display flex
       span
         color #fff
-        background #1493cf
+        background color-main
         width 480px
         display inline-block
         height 64px
@@ -134,11 +134,11 @@ export default {
         margin 34px 30px 0 0
         cursor pointer
       .anticon
-        color #1493cf
+        color color-main
         font-size 90px
         cursor pointer
     .why-intro
-      color #1493cf
+      color color-main
       font-size 24px
       text-align center
       p
@@ -155,7 +155,7 @@ export default {
         text-align center
         border-radius 50%
       .circle
-        background #1493cf
+        background color-main
         font-size 50px
         color #fff
       .plus

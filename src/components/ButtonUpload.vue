@@ -55,7 +55,7 @@ var policyText = {
   ]
 };
 
-var policyBase64 = Base64.encode(JSON.stringify(policyText));
+var policyBase64 = window.Base64.encode(JSON.stringify(policyText));
 let message = policyBase64;
 var bytes = Crypto.HMAC(Crypto.SHA1, message, accesskey, { asBytes: true });
 var signature = Crypto.util.bytesToBase64(bytes);
@@ -168,7 +168,8 @@ export default {
       },
       fileList: [],
       progress: 0,
-      fileMaxNumber: 1
+      fileMaxNumber: 1,
+      plupload: window.plupload
     };
   },
   mounted() {
@@ -201,13 +202,13 @@ export default {
       this.saveFile(formData);
     },
     initUpload() {
-      if (!plupload) {
+      if (!this.plupload) {
         let timer = setTimeout(() => {
           this.initUpload();
           clearTimeout(timer);
         }, 1000);
       }
-      let uploader = new plupload.Uploader({
+      let uploader = new this.plupload.Uploader({
         runtimes: "html5,flash,silverlight,html4",
         browse_button: "selectfiles",
         //multi_selection: false,
@@ -350,7 +351,7 @@ export default {
   line-height 40px
   .btn
     font-size 18px
-    color #1493cf
+    color color-main
 .img-box
   .img-item
     margin-bottom 20px
@@ -360,11 +361,11 @@ export default {
       i
         width 30px
         cursor pointer
-        color #1493cf
+        color color-main
         margin-left 20px
     .percent
       margin 0 20px 0 40px
-      color #1493cf
+      color color-main
     img
       width 300px
 </style>

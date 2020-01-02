@@ -96,7 +96,7 @@ export default {
 };
 </script>
 <style lang="stylus" scoped>
-$color-main = #1493cf
+$color-main = color-main
 .box
   border-top 2px solid #6e6e6e
   .content

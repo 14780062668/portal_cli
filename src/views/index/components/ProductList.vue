@@ -25,7 +25,9 @@ export default {
   props: {
     productList: {
       type: Array,
-      default: []
+      default: ()=>{
+        return [];
+      }
     }
   },
   data() {
@@ -95,7 +97,7 @@ li
         content ''
         width 100%
         height 100%
-        background #1493cf
+        background color-main
         opacity 0.6
         display block
         position absolute

@@ -112,7 +112,7 @@ export default {
         .info-name
           margin-bottom 60px
           h2
-            color #1493cf
+            color color-main
             margin-bottom 0
             font-weight 400
           .cn-name

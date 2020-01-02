@@ -4,13 +4,15 @@
       <div class="item">
         <img src="../assets/img/banner-0.jpg" alt="" />
         <div class="text-box">
-          <div class="info" v-if="languageType==1">
-            <p class="text">真空领域、稀有合金精密定制件</p>
-            <p class="text">专业的机械加工公司</p>
+          <div class="info" v-if="languageType == 2">
+            <p class="text large">PRECISION MACHINING SERVICE</p>
+            <p class="eng">
+              PROFESSIONAL MANUFACTURER<br />FOR CNC MACHINED PARTS
+            </p>
           </div>
           <div class="info" v-else>
-            <p class="text large">PRECISION MACHINING SERVICE</p>
-            <p class="eng">PROFESSIONAL MANUFACTURER<br />FOR CNC MACHINED PARTS</p>
+            <p class="text cn">真空领域、稀有合金精密定制件</p>
+            <p class="text cn">专业的机械加工公司</p>
           </div>
         </div>
       </div>
@@ -30,7 +32,7 @@
   </div>
 </template>
 <script>
-import mixins from '../../../mixins/index.js';
+import mixins from "../../../mixins/index.js";
 export default {
   mixins: [mixins],
   props: {},
@@ -49,25 +51,26 @@ export default {
   overflow hidden
   width 100%
   .text-box
-    font-size 26px
     color #fff
     position absolute
     left 0
     right 0
-    top 150px
+    top 84px
     text-align left
     .info
-      width 630px
-      margin 0 auto
+      margin-left 24.2%
       .text
-        color #1493cf
+        color color-main
       .large
-        font-size 28px
+        font-size 42px
       .eng
-        font-size 24px
-        line-height 28px
+        line-height 40px
+        font-size 34px
+      .cn
+        font-size 43px
     p
       margin-bottom 0
+
 .ant-carousel >>> .slick-slide {
   text-align: center;
   width: 100%;

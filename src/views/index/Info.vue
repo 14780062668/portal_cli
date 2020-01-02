@@ -15,12 +15,8 @@
 </template>
 <script>
 import mixins from "../../mixins/index.js";
-import Banner from "./components/Banner.vue";
 export default {
   mixins: [mixins],
-  components: {
-    Banner
-  },
   data() {
     return {};
   },
@@ -53,7 +49,7 @@ export default {
     .info-item
       margin-bottom 30px
       h4
-        color #1493cf
+        color color-main
         font-size 24px
         margin-bottom 4px
       p
