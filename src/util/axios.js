@@ -1,17 +1,12 @@
 import axios from "axios";
-import config from "../../config/index.js";
 import store from "../store/index.js";
 
-console.log("config==", config);
-//let { env } = process;
-//const NODE_ENV = env && env.NODE_ENV ? env.NODE_ENV : "dev";
-
 // const baseUrl =
-//   NODE_ENV == "dev"
+//   process.env.NODE_ENV == "development"
 //     ? "http://139.196.56.192:80/portal/api"
 //     : "http://localhost:80/portal/api";
 const baseUrl = "http://139.196.56.192:80/portal/api";
-console.log("baseUrl==", baseUrl);
+console.log(`baseUrl==${baseUrl}`);
 //axios全局配置
 const instance = axios.create({
   //请求接口
@@ -56,7 +51,7 @@ instance.interceptors.response.use(
         window.vm.$message.warning("请求错误");
       }, 40);
       console.error("ajax error", res);
-      return res
+      return res;
     }
   },
   error => {
