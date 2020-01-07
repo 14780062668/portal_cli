@@ -61,7 +61,6 @@ instance.interceptors.response.use(
       error.message.indexOf("timeout") !== -1
     ) {
       //let originalRequest = error.config;
-
       //return instance.request(originalRequest);//例如再重复请求一次
       return "error";
     }

@@ -1,3 +1,5 @@
 module.exports = {
-    //baseUrl: "http://localhost:80/portal/api"
+  //modes: "production"
+  //baseUrl: "http://localhost:80/portal/api"
+  publicPath: "./"
 };

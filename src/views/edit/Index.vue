@@ -324,6 +324,7 @@ export default {
     },
     // 首页展示
     productShowIndex(todo) {
+      console.log("todo==", todo);
       for (let item of this.showSort) {
         item.checked = item.id === todo.id ? true : false;
       }
