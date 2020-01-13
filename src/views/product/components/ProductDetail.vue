@@ -4,18 +4,40 @@
       <img :src="detailData.attachment" alt="" />
     </div>
     <ul class="detail-info" v-if="languageType == 1">
-      <li><span class="tag">名称:</span>{{ detailData.name }}</li>
-      <li><span class="tag">材质:</span>{{ detailData.material }}</li>
-      <li><span class="tag">特点:</span>{{ detailData.specialty }}</li>
-      <li><span class="tag">应用:</span>{{ detailData.adhibition }}</li>
+      <li>
+        <span class="tag">名称:</span>
+        <div class="content">{{ detailData.name }}</div>
+      </li>
+      <li>
+        <span class="tag">材质:</span>
+        <div class="content">{{ detailData.material }}</div>
+      </li>
+      <li>
+        <span class="tag">特点:</span>
+        <div class="content">{{ detailData.specialty }}</div>
+      </li>
+      <li>
+        <span class="tag">应用:</span>
+        <div class="content">{{ detailData.adhibition }}</div>
+      </li>
     </ul>
     <ul class="detail-info" v-else>
-      <li><span class="tag">Name:</span>{{ detailData.name }}</li>
-      <li><span class="tag">Material:</span>{{ detailData.material }}</li>
       <li>
-        <span class="tag">Characteristic:</span>{{ detailData.specialty }}
+        <span class="tag">Name:</span>
+        <div class="content">{{ detailData.name }}</div>
       </li>
-      <li><span class="tag">Application:</span>{{ detailData.adhibition }}</li>
+      <li>
+        <span class="tag">Material:</span>
+        <div class="content">{{ detailData.material }}</div>
+      </li>
+      <li>
+        <span class="tag">Characteristic:</span>
+        <div class="content">{{ detailData.specialty }}</div>
+      </li>
+      <li>
+        <span class="tag">Application:</span>
+        <div class="content">{{ detailData.adhibition }}</div>
+      </li>
     </ul>
     <div class="btn-box">
       <span class="btn" @click="goList">
@@ -72,4 +94,6 @@ export default {
       margin-bottom 26px
       .tag
         margin-right 10px
+      .content
+        flex 1
 </style>
