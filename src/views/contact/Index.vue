@@ -29,7 +29,7 @@
                     <span class="tag">电话:</span>
                     0574-62676122
                     <span class="tag" style="margin-left:14px;">传真:</span>
-                    0574-62676802
+                    0574-62676122
                   </div>
                   <div class="tag-line">
                     <span class="tag">联系人:</span>周泉君
@@ -56,7 +56,7 @@
                     <span class="tag">Tel:</span>
                     +86-574-62676122
                     <span class="tag" style="margin-left:14px;">Fax:</span>
-                    0574-62676802
+                    +86-574-62676122
                   </div>
                   <div class="tag-line">
                     <span class="tag">Contact:</span>Tony Liu

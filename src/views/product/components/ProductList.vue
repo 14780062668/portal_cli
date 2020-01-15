@@ -2,11 +2,7 @@
   <ul id="list-box">
     <li v-for="item in productList" :key="item.id" @click="goDetail(item)">
       <div class="img-box">
-        <!-- <img :src="item.attachment" alt="" /> -->
-        <div
-          class="img"
-          :style="{ 'background-image': `url(${item.attachment})` }"
-        ></div>
+        <img class="img" :src="item.attachment" alt="" />
         <div class="hover-text">
           <p>{{ item.name }}</p>
           <p><iconfont type="iconjia" /></p>
@@ -77,9 +73,6 @@ li
     .img
       width 100%
       height 100%
-      background-repeat no-repeat
-      background-position center center
-      background-size cover
     .hover-text
       position absolute
       left 0

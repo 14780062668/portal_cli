@@ -6,10 +6,7 @@
       @click="goProduct(item)"
     >
       <div class="img-box">
-        <div
-          class="img"
-          :style="{ 'background-image': `url(${item.attachment})` }"
-        ></div>
+        <img class="img" :src="item.attachment" alt="" />
         <div class="hover-text">
           <p>{{ item.productName }}</p>
           <p><iconfont type="iconjia" /></p>
@@ -25,7 +22,7 @@ export default {
   props: {
     productList: {
       type: Array,
-      default: ()=>{
+      default: () => {
         return [];
       }
     }
@@ -70,9 +67,6 @@ li
     .img
       width 100%
       height 100%
-      background-repeat no-repeat
-      background-position center center
-      background-size cover
     .hover-text
       position absolute
       left 0

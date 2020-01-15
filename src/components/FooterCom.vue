@@ -9,7 +9,7 @@
         <p class="info-base">
           <iconfont type="icondianhua" />
           <span class="tag">电话: 0574-62676122</span>
-          <span class="tag">传真: 0574-62676802</span>
+          <span class="tag">传真: 0574-62676122</span>
           <span class="tag">联系人: 周泉君</span>
           <span class="tag">手 机: 13335844026</span>
           <iconfont type="iconyouxiang" class="email-icon" />
@@ -24,7 +24,7 @@
         <p class="info-base">
           <iconfont type="icondianhua" />
           <span class="tag">Tel: +86-574-62676122</span>
-          <span class="tag">Fax: 0574-62676802</span>
+          <span class="tag">Fax: +86-574-62676122</span>
           <span class="tag">Contact: Tony Liu</span>
           <span class="tag">Mobile: +86-15921695152</span>
           <iconfont type="iconyouxiang" class="email-icon" />
