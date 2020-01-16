@@ -4,7 +4,7 @@ import store from "../store/index.js";
 // const baseUrl =
 //   process.env.NODE_ENV == "development"
 //     ? "http://139.196.56.192:80/portal/api"
-//     : "http://localhost:80/portal/api";
+//     : "http://127.0.0.1:80/portal/api";
 const baseUrl = "http://139.196.56.192:80/portal/api";
 console.log(`baseUrl==${baseUrl}`);
 //axios全局配置

@@ -263,7 +263,7 @@ export default {
           }
         ];
         this.productShowIndex({
-          id: detail.sort
+          id: detail.indexSort
         });
         this.$refs.productUpload.changeFile(this.fileList);
       }
@@ -281,7 +281,7 @@ export default {
     // 添加产品
     addProduct() {
       this.productShowIndex({
-        id: 0
+        id: -1
       });
       this.productId2 = -1;
       this.productName = "";
@@ -324,7 +324,8 @@ export default {
     },
     // 首页展示
     productShowIndex(todo) {
-      console.log("todo==", todo);
+      todo.id = todo.id == null ? -1 : todo.id;
+      console.log("首页展示==", todo);
       for (let item of this.showSort) {
         item.checked = item.id === todo.id ? true : false;
       }
