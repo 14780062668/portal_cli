@@ -24,7 +24,7 @@
         <div class="en-info" v-else>
           <div class="why-intro">
             <p>
-              here are many machining manufacturers around the world that
+              There are many machining manufacturers around the world that
               produce machined metal parts. But why should you work with us?
             </p>
             <p>
